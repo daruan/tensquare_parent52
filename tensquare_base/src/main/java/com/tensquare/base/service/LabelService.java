@@ -106,4 +106,16 @@ public class LabelService {
             }
         }, pageable);
     }
+
+    /**
+     * 分页查询
+     * @param page
+     * @param size
+     * @return
+     */
+    public Page<Label> pageQuery(int page,int size){
+        //封装分页对象
+        Pageable pageable = PageRequest.of(page-1, size);
+        return labelDao.findAll(pageable);
+    }
 }
